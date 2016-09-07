@@ -41,7 +41,7 @@ class HangpersonApp < Sinatra::Base
     letter = params[:guess].to_s[0]
     ### YOUR CODE HERE ###
     @game.guess(letter)
-    if not letter =~ /[A-Za-z]/
+    if letter.nil? or letter == "" or (not letter =~ /[A-Za-z]/)
       flash[:message] = "Invalid guess."
     end
     if @game.guesses.include? letter
@@ -59,7 +59,6 @@ class HangpersonApp < Sinatra::Base
     ### YOUR CODE HERE ###
     erb :show # You may change/remove this line
     result = @game.check_win_or_lose.to_s
-    # puts "cucumberz"
     if result == "win"
       redirect  '/win'
     end
@@ -77,7 +76,7 @@ class HangpersonApp < Sinatra::Base
     if result.to_s == "win"
       erb :win # You may change/remove this line
     else
-      erb :show
+      redirect '/show'
     end
   end
   
@@ -87,7 +86,7 @@ class HangpersonApp < Sinatra::Base
     if result.to_s == "lose"
       erb :lose # You may change/remove this line
     else 
-      erb :show
+      redirect '/show'
     end
   end
   
