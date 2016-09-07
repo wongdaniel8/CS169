@@ -22,9 +22,9 @@ class HangpersonGame
   end
   
   def guess(letter)
-    if letter.nil? or letter.length == 0 or (not isletter?(letter))
-      raise ArgumentError
-    end
+    # if letter.nil? or letter.length == 0 or (not isletter?(letter))
+    #   raise ArgumentError
+    # end
     letter = letter.downcase
     redundant = false
     if @guesses.include? letter or @wrong_guesses.include? letter
