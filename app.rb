@@ -83,10 +83,12 @@ class HangpersonApp < Sinatra::Base
   
   get '/lose' do
     ### YOUR CODE HERE ###
+    result = @game.check_win_or_lose.to_s
     if result.to_s == "lose"
       erb :lose # You may change/remove this line
-    else
+    else 
       erb :show
+    end
   end
   
 end
