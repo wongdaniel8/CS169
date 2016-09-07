@@ -61,26 +61,29 @@ class HangpersonApp < Sinatra::Base
     result = @game.check_win_or_lose.to_s
     # puts "cucumberz"
     if result == "win"
-      redirect  '/winz'
+      redirect  '/win'
     end
     if result == "lose"
-      redirect '/losez'
+      redirect '/lose'
     end
     if result == "play"
        erb :show
     end
   end
   
-  get '/winz' do
+  get '/win' do
     ### YOUR CODE HERE ###
-    erb :win # You may change/remove this line
-    #redirect '/win'
+    result = @game.check_win_or_lose.to_s
+    if result.to_s == "win"
+      erb :win # You may change/remove this line
+    end
   end
   
-  get '/losez' do
+  get '/lose' do
     ### YOUR CODE HERE ###
-    erb :lose # You may change/remove this line
-    #redirect '/lose'
+    if result.to_s == "lose"
+      erb :lose # You may change/remove this line
+    end
   end
   
 end
