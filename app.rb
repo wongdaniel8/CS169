@@ -76,6 +76,8 @@ class HangpersonApp < Sinatra::Base
     result = @game.check_win_or_lose.to_s
     if result.to_s == "win"
       erb :win # You may change/remove this line
+    else
+      erb :show
     end
   end
   
@@ -83,7 +85,8 @@ class HangpersonApp < Sinatra::Base
     ### YOUR CODE HERE ###
     if result.to_s == "lose"
       erb :lose # You may change/remove this line
-    end
+    else
+      erb :show
   end
   
 end
