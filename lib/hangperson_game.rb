@@ -54,7 +54,8 @@ class HangpersonGame
   end
   
   def check_win_or_lose
-    if @word.chars.sort.join == @guesses.chars.sort.join
+    if @word.chars.sort.join.squeeze == @guesses.chars.sort.join.squeeze
+    # if @word.chars.sort.join == @guesses.chars.sort.join
       return :win 
     end
     if @wrong_guesses.length >= 7
